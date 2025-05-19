@@ -1,0 +1,810 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  font-family: "Host Grotesk", sans-serif;
+  text-decoration: none;/* agar overlay tulisan seukuran border img */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* memberi animasi scroll agar smooth */
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 1.5px;
+}
+body::-webkit-scrollbar-track {
+  background: #e8e8e8;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #0b43a4;
+}
+
+/* memberi warna background gradient pada halaman web  */
+body {
+  overflow-x: hidden;
+  background: #071a3c;
+  margin-bottom: 2rem;
+  overflow-x: hidden;
+  color: rgb(255, 255, 255); /* agar body tidak mleber ke samping */
+}
+
+/* memberi warna, padding(ukuran nav agak tebal dan berisi),
+ space dan flex(membuat jadi tidak menumpuk di samping,jadi menyesuaikan layar),
+Z index(membuat posisi si navbar jadi paling atas),
+fixed(membuat navbar mengikuti layar dan tidak diam tertinggal),
+width mengatur lebar nav (disini di beri 99 karena jika 100 maka akan mleber karena 100+pading)*/
+nav {
+  position: fixed;
+  background: #092f54;
+  width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  align-items: center;
+  padding: 4px;
+}
+nav h4{
+  font-family: "Radio Canada Big", serif;
+  font-weight: 500;
+  font-size: 1.7rem;
+  margin-left: 3%;
+  color: white;
+}
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 40%;
+  margin-right: 25px;
+}
+
+nav a{
+  color: #bbe4fe;
+  
+}
+/* From Uiverse.io by tarantino421 */ 
+.buttons__burger {
+  width: 33px;
+  height: 23px;
+  cursor: pointer;
+  position: relative;
+  display: none;
+}
+
+.buttons__burger #burger {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+.buttons__burger span {
+  position: absolute;
+  display: block;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1.9px solid white;
+  background-color: var(--clr);
+  transition: 0.15s ease-in-out;
+}
+
+.buttons__burger span:nth-of-type(1) {
+  top: 0;
+  right: 0;
+  transform-origin: right center;
+}
+
+.buttons__burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons__burger span:nth-of-type(3) {
+  top: 100%;
+  right: 0;
+  transform-origin: right center;
+  transform: translateY(-100%);
+}
+
+.buttons__burger #burger:checked ~ span:nth-of-type(1) {
+  transform: translateY(-30%) rotate(40deg);
+  width: 50%;
+  top: 50%;
+}
+
+.buttons__burger #burger:checked ~ span:nth-of-type(3) {
+  transform: translateY(-70%) rotate(-40deg);
+  width: 50%;
+  top: 50%;
+}
+@media screen and (max-width: 768px) {
+nav ul {
+  width: 50%;
+}  
+}
+@media screen and (max-width: 620px) {
+  nav ul{
+    position: absolute;
+    right: -29px;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0a2c4e;
+    z-index: -2;
+    transform: translateX(100%);
+    transition: all 1s;
+    opacity: 0;
+  }
+  .buttons__burger{
+  display: block !important;
+  }
+  nav ul.slide {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  nav ul li {
+    font-size: 1.5rem;
+  }
+}
+
+
+/*radius agar pp jadi bulat, dan 
+transisi kembali menjadi bulat */
+.pp {
+  border-radius: 50%;
+  margin-top: 20%;
+  transition: 0.8s !important;
+  filter: grayscale(100%);
+}
+
+/* scale untuk zoom pp
+radius 0% untuk pp kembali ke bentuk semula tanpa border */
+.pp:hover {
+  transform: scale(1.2) !important;
+  border-radius: 0%;
+  filter: grayscale(0%);
+}
+
+header h1{
+  margin-top: 10px;
+}
+
+.container{
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 9%;
+}
+.container .text{
+    position: relative;
+    color: #4070F4;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.container span{
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.text.sec-text:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #071a3c;
+    border-left: 2px solid #4070F4;
+    animation: animate 4s steps(12) infinite;
+}
+@keyframes animate{
+    40%, 60%{
+        left: calc(100% + 4px);
+    }
+    100%{
+        left: 0%;
+    }
+}
+
+/* marque */
+.count-down {
+  display: flex;
+flex-direction: column;
+align-content: center;
+justify-content: center;
+align-items: center;
+}
+
+
+.section {
+color: white;
+}
+.section-marquee-box {
+display: flex;
+align-items: center;
+overflow: hidden;
+border: 1px solid var(--main-bg-color);
+background-color: var(--main-bg-color);
+}
+
+.section h2 {
+color: white;
+font-family: "Radio Canada Big", serif;
+white-space: nowrap;
+text-transform: uppercase;
+font-size: 6rem;
+font-weight: 100;
+flex-shrink: 0;
+padding: 0 10px;
+width: max-content;
+display: flex;
+align-items: center;
+transform: translateX(0);
+animation: text-scroll 75s linear infinite;
+}
+.section h2.reverse {
+color: var(--main-bg-color);
+animation: text-scroll-reverse 75s linear infinite;
+}
+@keyframes text-scroll {
+0% {
+transform: translate3d(-100%, 0, 0);
+}
+100% {
+transform: translate3d(0%, 0, 0);
+}
+}
+
+@keyframes text-scroll-reverse {
+0% {
+transform: translate3d(0, 0, 0);
+}
+100% {
+transform: translate3d(-100%, 0, 0);
+}
+}
+
+
+
+
+
+/* untuk memberi jarak margin atas pada overview */
+.overview {
+  margin-top: 100px;
+  margin-left: 14px;
+  margin-right: 41px;
+}
+
+.overview h1 {
+  margin-bottom: 11px;
+  font-size: 30px;
+}
+
+.overview p {
+  line-height: 1.7;
+  letter-spacing: 1.2px;
+  word-spacing: 1.5px;
+}
+
+/* untuk mengatur ukuran semua icon maximal 300px dan 50% agar pas
+flex dan relative agar sejajar  */
+.public-speaking {
+  display: flex;
+  flex-direction: column;
+  background-color: #0a2c4e;
+  border-radius: 20px;
+  position: relative;
+  width: 30vh;
+  height: 40vh;
+  transition: 0.6s;
+  padding: 0 0 40px 0;
+}
+@media  screen and (max-width: 600px) {
+  .skill-list{
+    flex-direction: column !important; 
+    align-items: center;
+  }
+  .public-speaking{
+    margin: 0 0 150px 0;
+    padding: 0 0 30px 0;
+  }
+  .public-speaking:hover{
+  transition: 0.6s !important;
+  }
+  
+  .overlay-public-speaking{
+   top: 74% !important;
+  }
+  .public-speaking:hover .overlay-public-speaking{
+    top: 80% !important;
+
+  } 
+
+
+}
+/* membuat icon menjadi responsif ukurannya, dan memberi transisi */
+.image-public-speaking {
+  width: 100%;
+  transition: 0.4s;
+}
+
+/* The overlay effect - lays on top of the container and over the image */
+.overlay-public-speaking {
+  position: absolute; /* agar overlay di dalam gambar, dan tidak mengubah ukuran gambar mts */
+  top: 70%; /* agar overlay di tengah gambar */
+  width: 100%; /* agar overlay selebar icon */
+  transition: 0.5s ease; /* transisi overlay */
+  opacity: 0; /* setting overlay tak terlihat sebelum di pencet */
+  color: white; /* warna text overlay */
+  font-size: 20px; /* font size overlay */
+  padding: 20px; /* memberi pading pada overlay */
+  text-align: center; /* agar text overlay di tengah */
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.public-speaking:hover .overlay-public-speaking {
+  opacity: 1;
+  transition: 0.4s;
+  top: 81%;
+}
+
+/* agar icon bisa di zoom */
+.public-speaking:hover {
+  background-color: #0c335a;
+  transform: scale(1.2);
+  transition: 0.6s !important;
+}
+.public-speaking:hover .progress-container{
+  opacity: 1 !important;
+  transition: 0.5s !important;
+  margin-top: 0;
+}
+
+.skill-list .public-speaking:nth-child(1):hover img,
+.skill-list .public-speaking:nth-child(3):hover img {
+  transform: rotate(9deg) rotateY(360deg);
+  transition: 0.4s;
+}
+.skill-list .public-speaking:nth-child(2):hover img,
+.skill-list .public-speaking:nth-child(4):hover img {
+  transform: rotate(-9deg) rotateY(360deg); /* CSS & JavaScript - Putar ke kanan */
+  transition: 0.4s;
+}
+
+.skill-list {
+  display: flex; /* agar icon" skil sejajar kesamping */
+  justify-content: space-around; /* agar icon" skil menyesuaikan space */
+}
+/* From Uiverse.io by rust_1966 */ 
+.progress-container {
+  transition: 0.4s;
+  margin-top: -15%;
+  opacity: 0;
+  align-self: center;
+  position: relative;
+  width: 80%;
+  max-width: 500px;
+  height: 20px;
+  background: radial-gradient(circle, #1b2735, #090a0f);
+  border-radius: 30px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 1px solid #313131;
+}
+
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, #f2be00, #e62705);
+  border-radius: 30px;
+  animation: grow 0.4s ease-in-out forwards;
+  box-shadow:
+  0 0 15px #e62705,
+  0 0 30px #e62705;
+}
+
+.skill-list .public-speaking:nth-child(2) .progress-bar {
+  background: linear-gradient(90deg,#4fa7ff , #0054a9);
+  box-shadow:
+  0 0 15px #0054a9,
+  0 0 30px #0054a9;
+  animation: grow2 0.4s ease-in-out forwards;
+}
+.skill-list .public-speaking:nth-child(3) .progress-bar {
+  background: linear-gradient(90deg,#fb711b , #0054a9);
+  box-shadow:
+  0 0 15px #0054a9,
+  0 0 30px #0054a9;
+  animation: grow3 0.4s ease-in-out forwards;
+}
+.skill-list .public-speaking:nth-child(4) .progress-bar {
+  background: linear-gradient(90deg,#fff200 ,#181705);
+  box-shadow:
+  0 0 15px #181705,
+  0 0 30px #181705;
+  animation: grow4 0.4s ease-in-out forwards;
+}
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.24), transparent);
+  opacity: 0.5;
+  animation: ripple 6s infinite;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 5s infinite ease-in-out;
+}
+
+.public-speaking:hover .progress-bar {
+  animation: grow-hover 0.6s ease-in-out forwards;
+}
+.skill-list .public-speaking:nth-child(2):hover .progress-bar{
+  animation: grow2-hover 0.6s ease-in-out forwards;
+}
+.skill-list .public-speaking:nth-child(3):hover .progress-bar{
+  animation: grow3-hover 0.6s ease-in-out forwards;
+}
+.skill-list .public-speaking:nth-child(4):hover .progress-bar{
+  animation: grow4-hover 0.6s ease-in-out forwards;
+}
+
+@keyframes grow-hover {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 80%;
+  }
+}
+@keyframes grow2-hover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 60%;
+  }
+}
+@keyframes grow3-hover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 50%;
+  }
+}
+@keyframes grow4-hover {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 10%;
+  }
+}
+@keyframes grow {
+  0% {
+    width: 80%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes grow2 {
+  0% {
+    width: 60%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes grow3 {
+  0% {
+    width: 50%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes grow4 {
+  0% {
+    width: 10%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.7;
+  }
+  50%{
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.5);
+    opacity: 0.7;
+  }
+
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+}
+.particle:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+.particle:nth-child(2) {
+  top: 30%;
+  left: 70%;
+  animation-delay: 1s;
+}
+.particle:nth-child(3) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 2s;
+}
+.particle:nth-child(4) {
+  top: 80%;
+  left: 40%;
+  animation-delay: 1.5s;
+}
+.particle:nth-child(5) {
+  top: 90%;
+  left: 60%;
+  animation-delay: 2.5s;
+}
+
+.skill h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  margin-left: 14px;
+  margin-top: 150px; /* memberi jarak ke atas tulisan skill */
+}
+
+.pendidikan-list {
+  display: flex; /* agar icon" pendidikan sejajar kesamping */
+  justify-content: space-around; /* agar icon" menyesuaikan space */
+}
+
+.pendidikan h2 {
+  margin-top: 150px; /* memberi jarak tulisan pendidikan ke atas */
+  justify-content: right; /* agar posisi text di kanan */
+  display: flex; /* agar bisa ke kanan harus di flex dulu */
+  margin-right: 14px;
+  margin-bottom: 20px;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.pendidikan{
+  position: relative;
+}
+
+.pendidikan-list img{
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  transition: 1.6s;
+
+}
+
+.pendidikan-list img:hover{
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
+  transition: 1.6s;
+}
+
+.overlay-pendidikan {
+   /* agar overlay di dalam gambar, dan tidak mengubah ukuran gambar mts */
+  background: rgba(4, 132, 167, 0.18); /* Black see-through */
+  width: 100%; /* agar overlay selebar icon */
+  transition: 0.8s ease; /* transisi overlay */
+  opacity: 0; /* setting overlay tak terlihat sebelum di pencet */
+  color: white; /* warna text overlay */
+  font-size: 20px; /* font size overlay */
+  padding: 10px; /* memberi pading pada overlay */
+  text-align: center; /* agar text overlay di tengah */
+}
+
+/* When you mouse over the container, fade in the overlay title */
+.pendidikan-icon:hover .overlay-pendidikan {
+  opacity: 1;
+}
+
+
+
+.tujuan-list { 
+  display: flex; /* agar icon" sejajar kesamping */
+  justify-content: space-evenly; /* agar icon icon menyesuai kan space */
+}
+
+.tujuan h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  margin-top: 150px; /* memberi jarak tulisan tujuan ke atas */
+  justify-content: center; /* agar posisi text di center */
+  display: flex; /* agar bisa ke center harus di flex dulu */
+}
+
+.about {
+  margin-left: 14px;
+  margin-top: 160px; /* memberi jarak tulisan about ke atas */
+}
+
+.about h1{
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.about p{
+  line-height: 1.7;
+  letter-spacing: 1.2px;
+  word-spacing: 1.5px;
+  text-align: left;
+  margin-right: 41px;
+}
+
+.contact h2 {
+  margin-top: 150px; /* memberi jarak tulisan contact ke atas */
+  justify-content: center; /* agar text di tengah */
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+/* From Uiverse.io by wilsondesouza */
+ul {
+  list-style: none; /* mengilangkan list hitam di icon icon contact */
+}
+
+.example-2 {
+  display: flex; /* agar icon" contact sejajar kesamping */
+  justify-content: center; /* agar icon" contact di center */
+  padding: 30px 30px; /* memberi padding pada icon" agar icon" bisa tepat di center */
+  gap: 2px; /* setelahh di beri pading harus di beri sedikit jarak agar rapih */
+}
+.example-2 .icon-content {
+  margin: 0 10px; /* memberi margin pada icon agar ada jarak antar icon */
+  position: relative; /* relative agar overlay text icon muncul */
+}
+.example-2 .icon-content .tooltip {
+  position: absolute; /* agar icon icon rapih */
+  top: -30px; /* mengatur posisi muncul nya text overlay contact */
+  left: 50%; /* agar overlay text berada di tengah */
+  transform: translateX(-50%); /* agar overlay berada di tengah */
+  color: #fff; /* warna text overlay contact */
+  padding: 6px 10px; /* memberi pading pada overlay text contacct */
+  border-radius: 5px; /* memberi potongan border pada overlay agar tidak kotak dan kaku */
+  opacity: 0; /* agar overlay cepat hilang saat kursos di alihkan */
+  visibility: hidden; /* agar transisi menghilang overlay smoth */
+  font-size: 14px; /* size text overlay */
+  transition: all 0.3s ease; /* agar ada animasinya */
+  justify-content: center; /* agar text tepat di tengah */
+  align-items: center; /* agar text tepat di tengah */
+}
+.example-2 .icon-content:hover .tooltip {
+  opacity: 1; /* agar overlay nya terlihat */
+  visibility: visible; /* agar overlaynya terlihat  */
+  top: -50px; /* agar posisi overlay berada di atas */
+}
+.example-2 .icon-content a {
+  position: relative; /* agar warna icon pas dengan icon */
+  overflow: hidden; /* agar warna icon pas dengan icon */
+  display: flex; /* agar warna background putih pas */
+  justify-content: center; /* agar icon berada di tengah */
+  align-items: center; /* agar icon di tengah  */
+  width: 50px; /* agar lebar nya pas */
+  height: 50px; /* agar tinggi nya pas  */
+  border-radius: 20%; /* agar border icon nya aga kotak */
+  color: #000000; /* warna icon */
+  background-color: #fff; /* warna background icon */
+  transition: all 0.3s ease-in-out; /* transisi mengisi warna */
+}
+.example-2 .icon-content a:hover {
+  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%); /* warna di sekitar icon saat berwarna */
+}
+.example-2 .icon-content a svg {
+  position: relative; 
+  z-index: 1; /* agar posisi nya di */
+  width: 30px; /* mengatur ukuran icon */
+  height: 30px; /* mengatur ukuran icon */
+}
+.example-2 .icon-content a:hover {
+  color: white; /* warna icon saat di fill */
+}
+.example-2 .icon-content a .filled {
+  position: absolute; /* agar icon di tengah */
+  top: auto; /* entah apa ini */
+  bottom: 0; /* animasi mengisi warna agar dari bawah ke atas */
+  left: 0; /* entah apa  */
+  width: 100%; /* agar warnanya terfill semuaa */
+  height: 0; /* agar posisi awal kosong tidak terfill*/
+  background-color: #000; /* entah apa ini */
+  transition: all 0.3s ease-in-out; /* agar ada animasi saat fill */
+}
+.example-2 .icon-content a:hover .filled {
+  height: 100%; /* agar terfill seluruh nya */
+}
+
+.example-2 .icon-content a[data-social="linkedin"] .filled,
+.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+  background-color: #02c84b; /* warna whatsapp */
+}
+
+.example-2 .icon-content a[data-social="github"] .filled,
+.example-2 .icon-content a[data-social="github"] ~ .tooltip {
+  background-color: #000000; /* warna tiktok */
+}
+.example-2 .icon-content a[data-social="instagram"] .filled,
+.example-2 .icon-content a[data-social="instagram"] ~ .tooltip {
+  background: linear-gradient( /* warna insatgram */
+    45deg,
+    #405de6,
+    #5b51db,
+    #b33ab4,
+    #c135b4,
+    #e1306c,
+    #fd1f1f
+  );
+}
+.example-2 .icon-content a[data-social="youtube"] .filled,
+.example-2 .icon-content a[data-social="youtube"] ~ .tooltip {
+  background-color: #ff0000; /* warna email */
+}
